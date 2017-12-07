@@ -13,41 +13,55 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-void createMatrix(bool **m, int l, int c);
+bool **createMatrix(int l, int c);
 void printMatrix(bool **m, int l, int c);
 
 // Arguments: lines and columns
 int main(int argc, char *argv[]) {
     srand(time(NULL));
     int l, c;
+    bool **m;
 
     if(argc < 2) {
         cout << "Not enough arguments!\n" << endl;
         return 1;
     }
-    l = (int) argv[0][0];
-    c = (int) argv[1][0];
-    bool m[l][c];
-    createMatrix(m, l, c);
+    l = atoi(argv[1]);
+    c = atoi(argv[2]);
+    m = createMatrix(l, c); 
     printMatrix(m, l, c);
 
     return 0;
 }
 
-void createMatrix(bool **m, int l, int c) {
+bool **createMatrix(int l, int c) {
+    bool **m = new bool*[l];
+
+    cout << "Creating matrix " << l << " by " << c << endl;
 
     for(int i = 0; i < l; i++) {
+        m[i] = new bool[c];
         for(int j = 0; j < c; j++) {
             m[i][j] = rand()%2;
         }
     }
+
+    return m;
 }
 
 void printMatrix(bool **m, int l, int c) {
 
     for(int i = 0; i < l; i++) {
         for(int j = 0; j < c; j++) {
-            cout << "\t" << (m[i][j] ? "X" : " ");
+            if(i == 0 && j == 0) {
+                cout << "\tS";
+            }
+            else if(i == l - 1 && j == c - 1) {
+                cout << "\tE";
+            }
+            else {
+                cout << "\t" << (m[i][j] ? "X" : "_");
+            }
         }
         cout << endl;
     }
