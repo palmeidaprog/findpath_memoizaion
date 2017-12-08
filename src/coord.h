@@ -17,7 +17,6 @@ class Coord {
 
     const int &getPath();
 
-
 public:
     Coord(int x, int y);
 
