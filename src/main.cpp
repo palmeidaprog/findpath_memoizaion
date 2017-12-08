@@ -5,6 +5,7 @@
  * http://github.com/palmeidaprog/findpath_memoizaion
  */
 
+#include "coord.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>

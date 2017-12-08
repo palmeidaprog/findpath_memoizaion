@@ -13,12 +13,12 @@ namespace findpath {
 class Coord {
     int const x;
     int const y;
-    int &path;
+    //int &path;
 
     const int &getPath();
 
 public:
-    Coord(int x, int y);
+    Coord(int x1, int y1);
 
 };
 
