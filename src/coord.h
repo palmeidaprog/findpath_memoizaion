@@ -15,11 +15,13 @@ class Coord {
     int const y;
     //int &path;
 
-    const int &getPath();
-
+    int &getPath() const;
+    int getX() const;
+    int getY() const;
+    
 public:
     Coord(int x1, int y1);
-
+    ~Coord();
 };
 
 }
